@@ -15,10 +15,10 @@ abstract class TypedCouple {
         case 'NULL': return $this->null($needle, $haystack);
 
         // Adds cases for reference types.
-        case 'array': return $this->array($needle, $haystack);
+        case 'array': return $this->reference($needle, $haystack);
 
         // Adds cases for operational types.
-        case 'function': return $this->function($needle, $haystack);
+        case 'function': return $this->operation($needle, $haystack);
 
         // Adds default for unknown types.
         default: return $this->unknown($needle, $haystack);
@@ -58,13 +58,37 @@ abstract class TypedCouple {
   }
 
   // Adds abstract methods for reference types.
-  abstract public function array($needle, $haystack);
+  abstract public function reference($needle, $haystack);
 
   // Adds abstract methods for operational types.
-  public function function($needle, $haystack) {
+  public function operation($needle, $haystack) {
     return $needle($haystack);
   }
 
   // Adds other methods.
-  abstract public function unknown($needle, $haystack);
+  public function unknown($needle, $haystack) {
+    throw new TypedCoupleException('Unknown type', $needle, $haystack);
+  }
+}
+
+class TypedCoupleException extends \Exception {
+  protected $needle;
+  protected $haystack;
+
+  public function __construct($message, $needle, $haystack) {
+    // Sets properties for a validation exception.
+    $this->needle = $needle;
+    $this->haystack = $haystack;
+
+    // Calls the parent's constructor.
+    parent::__construct($message);
+  }
+
+  public function getNeedle() {
+    return $this->needle;
+  }
+
+  public function getHaystack() {
+    return $this->haystack;
+  }
 }
