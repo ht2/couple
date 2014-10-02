@@ -7,7 +7,7 @@
 [![License](https://poser.pugx.org/ht2/couple.php/license.svg)](https://packagist.org/packages/ht2/couple.php)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/ht2/couple?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-If you have a bug, enhancement, or question you can post it in the issues, however, please see the [guidelines](/contributing.md) before doing so. You may also ask questions and chat on [Gitter](https://gitter.im/ht2/couple).
+If you have a bug, enhancement, or question you can post it in the [issues](/issues), however, please see the [guidelines](/contributing.md) before doing so. You may also ask questions and chat on [Gitter](https://gitter.im/ht2/couple).
 
 ## Users
 Documentation can be found in the [docs](/docs) directory. Install using `composer require ht2/couple`.
