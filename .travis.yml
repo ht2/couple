@@ -1,3 +1,9 @@
 language: php
 php: 5.5
 install: composer install --prefer-source --no-interaction --dev
+notifications:
+  webhooks:
+    urls:
+      - secure: "GJJpZOYhFpna/gqyFzT+ET5jkCkXNhnBrGdoZyPH8m2jrebVcpGD/Hgo9CQcdLHCKLkopxIGVm77apKSEzQ2FVOBIXdYx+lv8NGNwY++5vfX0r40sXbncCTnSugmikA2sJoVhciyGDhhMU7PAXvTGwO4tKYv+n0C0F2wZJIxtq4="
+    on_success: change
+    on_failure: change
