@@ -1,0 +1,16 @@
+{
+  "require-dev": {
+    "phpunit/phpunit": "~4.2"
+  },
+  "require": {
+  },
+  "name": "ht2/couple.php",
+  "description": "Port of ryansmith94/couple from JS to PHP. A library for coupling two objects together. This is useful for nested pattern matching.",
+  "license": "Creative Commons",
+  "authors": [
+    {
+      "name": "Ryan Smith",
+      "email": "0ryansmith1994@gmail.com"
+    }
+  ]
+}
