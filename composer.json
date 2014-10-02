@@ -4,7 +4,7 @@
   },
   "require": {
   },
-  "name": "ht2/couple.php",
+  "name": "ht2/couple",
   "description": "Port of ryansmith94/couple from JS to PHP. A library for coupling two objects together. This is useful for nested pattern matching.",
   "license": "Creative Commons",
   "authors": [
