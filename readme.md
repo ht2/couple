@@ -2,9 +2,9 @@
 > Port of [ryansmith94/couple](https://github.com/ryansmith94/couple) from JS to PHP. A library for coupling two objects together. This is useful for nested pattern matching.
 
 [![Build Status](https://travis-ci.org/ht2/couple.svg)](https://travis-ci.org/ht2/couple)
-[![Latest Stable Version](https://poser.pugx.org/learninglocker/learninglocker/v/stable.svg)](https://packagist.org/packages/learninglocker/learninglocker)
-[![Total Downloads](https://poser.pugx.org/learninglocker/learninglocker/downloads.svg)](https://packagist.org/packages/learninglocker/learninglocker)
-[![License](https://poser.pugx.org/learninglocker/learninglocker/license.svg)](https://packagist.org/packages/learninglocker/learninglocker)
+[![Latest Stable Version](https://poser.pugx.org/ht2/couple/v/stable.svg)](https://packagist.org/packages/ht2/couple)
+[![Total Downloads](https://poser.pugx.org/ht2/couple/downloads.svg)](https://packagist.org/packages/ht2/couple)
+[![License](https://poser.pugx.org/ht2/couple/license.svg)](https://packagist.org/packages/ht2/couple)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/ht2/couple?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 If you have a bug, enhancement, or question you can post it in the issues, however, please see the [contributing.md](/contributing.md) file before doing so. You may also ask questions and chat on [Gitter](https://gitter.im/ht2/couple).
