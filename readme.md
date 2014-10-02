@@ -13,7 +13,7 @@ If you have a bug, enhancement, or question you can post it in the issues, howev
 Documentation can be found in the [docs](/docs) directory. Install using `composer require ht2/couple`.
 
 ## Developers
-You may contribute to this project via issues and pull requests, however, please see the [guidelines](/contributing.md) before doing so.
+You may contribute to this project via [issues](/issues) and [pull request](/pulls), however, please see the [guidelines](/contributing.md) before doing so.
 
 ### Getting Started
 1. [Fork](/fork) the repository.
@@ -23,7 +23,7 @@ You may contribute to this project via issues and pull requests, however, please
 5. Run `./vendor/bin/phpunit`. See [Testing](#testing) below for more information.
 6. Repeat from Step 4 or continue to step 7.
 7. Commit and push your changes to Github.
-8. Create a [pull request](/compare) on Github (ensuring that you follow the [guidelines](/contributing.md)).
+8. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
 
 ### Directory Structure
 - [src](/src) - Source code written in PHP.
