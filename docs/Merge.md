@@ -1,12 +1,13 @@
 # Merge
 
 ```php
-$merge = new Merge();
+$merge = new couple\Merge();
 
-$merge->couple([
+$coupleResult = $merge->couple([
   'a' => 1,
   'b' => 1
-])([
+]);
+$coupleResult = $coupleResult([
   'b' => 2,
   'c' => 2
 ]);

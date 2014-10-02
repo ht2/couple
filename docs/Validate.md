@@ -1,9 +1,9 @@
 # Validate
 
 ```php
-$validate = new $validate->couple();
+$validate = new couple\Validate();
 
-$validate->couple([
+$coupleResult = $validate->couple([
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,
@@ -12,7 +12,8 @@ $validate->couple([
   'string2' => function ($needle, $haystack) {
     $needle === 'foobar';
   }
-])([
+]);
+$coupleResult = $coupleResult([
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,
@@ -21,7 +22,7 @@ $validate->couple([
   'string2' => 'foobar'
 ]); // Returns true.
 
-$validate->couple([
+$coupleResult = $validate->couple([
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,
@@ -30,7 +31,8 @@ $validate->couple([
   'string2' => function ($needle, $haystack) {
     $needle === 'foobar';
   }
-])([
+]);
+$coupleResult = $coupleResult([
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,

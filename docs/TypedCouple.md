@@ -2,7 +2,7 @@
 
 ```php
 // Defines your own `TypedCouple`.
-class ShallowMerge extends TypedCouple {
+class ShallowMerge extends couple\TypedCouple {
   // Override methods from `TypedCouple` if you need to.
 
   // Define abstract methods in `TypedCouple`.
@@ -29,7 +29,8 @@ $haystack = [
   'b' => 2,
   'c' => 2
 ];
-$shallowMerge->couple($needle)($haystack);
+$coupleResult = $shallowMerge->couple($needle);
+$coupleResult = $coupleResult($haystack);
 
 /*
 Returns `[

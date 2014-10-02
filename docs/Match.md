@@ -1,9 +1,9 @@
 # Match
 
 ```php
-$match = new Match();
+$match = new couple\Match();
 
-$match->couple([
+$coupleResult = $match->couple([
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,
@@ -12,7 +12,8 @@ $match->couple([
   'string2' => function ($needle, $haystack) {
     $needle === 'foobar';
   }
-])([
+]);
+$coupleResult = $coupleResult([
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,

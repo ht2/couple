@@ -1,10 +1,13 @@
 # Couple
 
 ```php
-a = []
-b = []
+$mod = function ($needle, $haystack) {
+  return $needle;
+};
+$needle = [];
+$haystack = [];
 
-mod = (a, b) -> b
-
-couple(mod)(a)(b)
+$coupleResult = couple\couple($mod);
+$coupleResult = $coupleResult($needle);
+$coupleResult = $coupleResult($haystack);
 ```
