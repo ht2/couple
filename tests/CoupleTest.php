@@ -1,6 +1,6 @@
 <?php
 
-include_once(__DIR__ . '/../src/couple.php');
+include_once(__DIR__ . '/../src/Couple.php');
 
 class CoupleTest extends PHPUnit_Framework_TestCase {
 
@@ -14,6 +14,7 @@ class CoupleTest extends PHPUnit_Framework_TestCase {
     // Creates a needle and a haystack.
     $this->needle = [];
     $this->haystack = [];
+    $this->couple = new couple\Couple();
 
     // Calls parent setup.
     parent::setUp();
@@ -24,11 +25,9 @@ class CoupleTest extends PHPUnit_Framework_TestCase {
    */
   public function testNeedle() {
     // Gets the result from couple.
-    $coupleResult = couple\couple(function ($needle, $haystack) {
+    $coupleResult = $this->couple->run(function ($needle, $haystack) {
       return $needle;
-    });
-    $coupleResult = $coupleResult($this->needle);
-    $coupleResult = $coupleResult($this->haystack);
+    }, $this->needle, $this->haystack);
 
     // Tests the result is correct.
     $this->assertEquals($coupleResult, $this->needle);
@@ -39,11 +38,9 @@ class CoupleTest extends PHPUnit_Framework_TestCase {
    */
   public function testHaystack() {
     // Gets the result from couple.
-    $coupleResult = couple\couple(function ($needle, $haystack) {
+    $coupleResult = $this->couple->run(function ($needle, $haystack) {
       return $haystack;
-    });
-    $coupleResult = $coupleResult($this->needle);
-    $coupleResult = $coupleResult($this->haystack);
+    }, $this->needle, $this->haystack);
 
     // Tests the result is correct.
     $this->assertEquals($coupleResult, $this->haystack);
