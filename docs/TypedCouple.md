@@ -10,7 +10,7 @@ class ShallowMerge extends couple\TypedCouple {
     return $haystack;
   }
 
-  public function array($needle, $haystack) {
+  public function arr($needle, $haystack) {
     return $haystack;
   }
 
@@ -19,7 +19,7 @@ class ShallowMerge extends couple\TypedCouple {
   }
 }
 
-// Runs your `TypedCouple`.
+// Creates the arguments.
 $shallowMerge = new ShallowMerge();
 $needle = [
   'a' => 1,
@@ -29,8 +29,9 @@ $haystack = [
   'b' => 2,
   'c' => 2
 ];
-$coupleResult = $shallowMerge->couple($needle);
-$coupleResult = $coupleResult($haystack);
+
+// Runs your `TypedCouple`.
+$coupleResult = $shallowMerge->run($needle, $haystack);
 
 /*
 Returns `[

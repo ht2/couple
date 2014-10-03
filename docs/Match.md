@@ -1,9 +1,11 @@
 # Match
 
 ```php
-$match = new couple\Match();
+// Gets the class.
+$couple = new couple\Match();
 
-$coupleResult = $match->couple([
+// Creates the arguments.
+$needle = [
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,
@@ -12,13 +14,16 @@ $coupleResult = $match->couple([
   'string2' => function ($needle, $haystack) {
     $needle === 'foobar';
   }
-]);
-$coupleResult = $coupleResult([
+];
+$haystack = [
   'boolean' => false,
   'integer' => 10,
   'double' => 10.0,
   'string1' => 'hello world',
   'array' => [20],
   'string2' => 'foobar'
-]); // Returns true.
+];
+
+// Runs the couple.
+$couple->run($needle, $haystack); // Returns true.
 ```

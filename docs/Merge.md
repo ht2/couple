@@ -1,16 +1,21 @@
 # Merge
 
 ```php
-$merge = new couple\Merge();
+// Gets the class.
+$couple = new couple\Merge();
 
-$coupleResult = $merge->couple([
+// Creates the arguments.
+$needle = [
   'a' => 1,
   'b' => 1
-]);
-$coupleResult = $coupleResult([
+];
+$haystack = [
   'b' => 2,
   'c' => 2
-]);
+];
+
+// Runs the couple.
+$couple->run($needle, $haystack);
 
 /*
 Returns `[
