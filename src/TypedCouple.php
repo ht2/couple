@@ -18,7 +18,6 @@ abstract class TypedCouple extends Couple {
       case 'array': return $this->arr($needle, $haystack);
       case 'object': return $this->obj($needle, $haystack);
       case 'function': return $this->func($needle, $haystack);
-      case 'regexp': return $this->regexp($needle, $haystack);
 
       // Adds default for unknown types.
       default: return $this->unknown($needle, $haystack);
@@ -65,9 +64,6 @@ abstract class TypedCouple extends Couple {
   }
   public function func($needle, $haystack) {
     return $needle($haystack);
-  }
-  public function regexp($needle, $haystack) {
-    return $needle->test($haystack);
   }
 
   public function unknown($needle, $haystack) {

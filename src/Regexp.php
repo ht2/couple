@@ -1,6 +1,8 @@
 <?php namespace couple;
 
-class Regexp {
+include_once(__DIR__ . '/Couple.php');
+
+class Regexp extends Couple {
 
   protected $pattern;
 
@@ -8,7 +10,7 @@ class Regexp {
     $this->pattern = $pattern;
   }
 
-  public function test() {
-    return preg_match($this->pattern);
+  public function run($haystack) {
+    return preg_match($this->pattern, $haystack);
   }
 }
