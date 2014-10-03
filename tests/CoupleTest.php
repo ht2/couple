@@ -25,9 +25,10 @@ class CoupleTest extends PHPUnit_Framework_TestCase {
    */
   public function testNeedle() {
     // Gets the result from couple.
-    $coupleResult = $this->couple->run(function ($needle, $haystack) {
+    $modifier = function ($needle, $haystack) {
       return $needle;
-    }, $this->needle, $this->haystack);
+    };
+    $coupleResult = $this->couple->run($this->needle, $this->haystack, $modifier);
 
     // Tests the result is correct.
     $this->assertEquals($coupleResult, $this->needle);
@@ -38,9 +39,10 @@ class CoupleTest extends PHPUnit_Framework_TestCase {
    */
   public function testHaystack() {
     // Gets the result from couple.
-    $coupleResult = $this->couple->run(function ($needle, $haystack) {
-      return $haystack;
-    }, $this->needle, $this->haystack);
+    $modifier = function ($needle, $haystack) {
+      return $needle;
+    };
+    $coupleResult = $this->couple->run($this->needle, $this->haystack, $modifier);
 
     // Tests the result is correct.
     $this->assertEquals($coupleResult, $this->haystack);
