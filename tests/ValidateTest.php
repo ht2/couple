@@ -35,10 +35,10 @@ class ValidateTest extends \PHPUnit_Framework_TestCase {
    * Tests the null method.
    */
   public function testPrimitive() {
-    $value = 'hello world';
-    $result = $this->couple->primitive($value, $value);
+    $needle = 'hello world';
+    $result = $this->couple->primitive($needle, $needle);
     $this->assertEquals($result, true);
-    $result = $this->couple->primitive($value, $value . '.');
+    $result = $this->couple->primitive($needle, $needle . '.');
     $this->assertEquals($result, false);
   }
 

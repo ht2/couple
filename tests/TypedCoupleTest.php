@@ -36,10 +36,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the boolean method.
    */
   public function testBoolean() {
-    $value = false;
-    $result = $this->couple->boolean($value, $this->haystack);
+    $needle = false;
+    $result = $this->couple->boolean($needle, $this->haystack);
     $this->assertEquals($result['type'], 'boolean');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -47,10 +47,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the integer method.
    */
   public function testInteger() {
-    $value = 10;
-    $result = $this->couple->integer($value, $this->haystack);
+    $needle = 10;
+    $result = $this->couple->integer($needle, $this->haystack);
     $this->assertEquals($result['type'], 'integer');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -58,10 +58,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the double method.
    */
   public function testDouble() {
-    $value = 10.0;
-    $result = $this->couple->double($value, $this->haystack);
+    $needle = 10.0;
+    $result = $this->couple->double($needle, $this->haystack);
     $this->assertEquals($result['type'], 'double');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -69,10 +69,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the string method.
    */
   public function testString() {
-    $value = 'Hello world';
-    $result = $this->couple->string($value, $this->haystack);
+    $needle = 'Hello world';
+    $result = $this->couple->string($needle, $this->haystack);
     $this->assertEquals($result['type'], 'string');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -80,10 +80,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the null method.
    */
   public function testNull() {
-    $value = null;
-    $result = $this->couple->null($value, $this->haystack);
+    $needle = null;
+    $result = $this->couple->null($needle, $this->haystack);
     $this->assertEquals($result['type'], 'NULL');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -91,10 +91,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the null method.
    */
   public function testPrimitive() {
-    $value = 'hello world';
-    $result = $this->couple->primitive($value, $this->haystack);
+    $needle = 'hello world';
+    $result = $this->couple->primitive($needle, $this->haystack);
     $this->assertEquals($result['type'], 'string');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -102,10 +102,10 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the arr method.
    */
   public function testArr() {
-    $value = [];
-    $result = $this->couple->arr($value, $this->haystack);
+    $needle = [];
+    $result = $this->couple->arr($needle, $this->haystack);
     $this->assertEquals($result['type'], 'array');
-    $this->assertEquals($result['needle'], $value);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -113,9 +113,9 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the obj method.
    */
   public function testObj() {
-    $value = new MyObject();
-    $result = $this->couple->obj($value, $this->haystack);
-    $this->assertEquals($result['needle'], $value);
+    $needle = new MyObject();
+    $result = $this->couple->obj($needle, $this->haystack);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -123,15 +123,15 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the func method.
    */
   public function testFunc() {
-    $value = function ($needle, $haystack) {
+    $needle = function ($needle, $haystack) {
       return [
         'needle' => $needle,
         'haystack' => $haystack
       ];
     };
 
-    $result = $this->couple->func($value, $this->haystack);
-    $this->assertEquals($result['needle'], $value);
+    $result = $this->couple->func($needle, $this->haystack);
+    $this->assertEquals($result['needle'], $needle);
     $this->assertEquals($result['haystack'], $this->haystack);
   }
 
@@ -139,12 +139,12 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    * Tests the func method.
    */
   public function testUnknown() {
-    $value = 10;
+    $needle = 10;
     try {
-      $result = $this->couple->unknown($value, $this->haystack);
+      $result = $this->couple->unknown($needle, $this->haystack);
     } catch (\couple\TypedCoupleException $e) {
       $this->assertEquals($e->getMessage(), 'unknown type');
-      $this->assertEquals($e->getNeedle(), $value);
+      $this->assertEquals($e->getNeedle(), $needle);
       $this->assertEquals($e->getHaystack(), $this->haystack);
     } catch (\Exception $e) {
       $this->assertEquals(false, true);
