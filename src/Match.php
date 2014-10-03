@@ -27,7 +27,7 @@ class Match extends TypedCouple {
     }
   }
 
-  public function unknown() {
+  public function unknown($needle, $haystack) {
     return false;
   }
 }
