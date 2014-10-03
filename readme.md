@@ -20,7 +20,7 @@ You may contribute to this project via [issues](/issues) and [pull request](/pul
 2. Clone your forked version of the repository.
 3. Run `composer install`.
 4. Change the code.
-5. Run `./vendor/bin/phpunit`. See [Testing](#testing) below for more information.
+5. See [Testing](#testing) below for more information.
 6. Repeat from Step 4 or continue to step 7.
 7. Commit and push your changes to Github.
 8. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
@@ -31,4 +31,4 @@ You may contribute to this project via [issues](/issues) and [pull request](/pul
 - [docs](/docs) - Documentation written in "Github Flavoured Markdown".
 
 ### Testing
-You should try to ensure that `./vendor/bin/phpunit` runs without any errors before submitting a pull request.
+You should try to ensure that `./vendor/bin/phpunit tests` runs without any errors before submitting a pull request.
