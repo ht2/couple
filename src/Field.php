@@ -11,14 +11,14 @@ class Field extends Couple {
     $this->optional = false;
     $this->states = [];
     $this->extend = [];
-    $this->default = null;
+    $this->def = null;
     $this->merge = new Merge();
     $this->validate = new Validate();
   }
 
   public function run($haystack, $needle=null, $modifier=null) {
-    // Merges the `haystack` with the `default`.
-    $mergedValue = $this->merge->run($this->default, $haystack);
+    // Merges the `haystack` with the `def`.
+    $mergedValue = $this->merge->run($this->def, $haystack);
 
     // Returns `true` if the haystack is not defined and it's optional.
     if (is_null($mergedValue)) {
@@ -66,9 +66,9 @@ class Field extends Couple {
     return $this;
   }
 
-  public function setDefault($default) {
-    // Merges the previous `default` with the new one.
-    $this->default = $this->merge->run($this->default, $default);
+  public function setDefault($def) {
+    // Merges the previous `def` with the new one.
+    $this->def = $this->merge->run($this->def, $def);
     return $this;
   }
 }
