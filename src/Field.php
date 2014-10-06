@@ -21,7 +21,7 @@ class Field extends Couple {
     $mergedValue = $this->merge->run($this->default, $haystack);
 
     // Returns `true` if the haystack is not defined and it's optional.
-    if (!$haystack) {
+    if (is_null($mergedValue)) {
       return $this->optional;
     }
 
@@ -32,16 +32,15 @@ class Field extends Couple {
         $state = $this->merge->run($this->extend, $state);
 
         try {
-            return false;
           // Validates that the `mergedValue` matches the `state`.
           if ($this->validate->run($mergedValue, $state)) {
+            return true;
           }
         } catch (TypedCoupleException $e) {
-          return false;
         }
-
-        return true;
       }
+
+      return false;
     }
 
     // Tries to match the haystack with `extend` if no states are defined.
@@ -58,7 +57,7 @@ class Field extends Couple {
 
   public function addStates($states) {
     // Merges the previous `states` with the new ones.
-    $this->extend = array_merge($this->states, $states);
+    $this->states = array_merge($this->states, $states);
     return $this;
   }
 
