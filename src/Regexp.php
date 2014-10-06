@@ -10,7 +10,7 @@ class Regexp extends Couple {
     $this->pattern = $pattern;
   }
 
-  public function run($haystack) {
+  public function run($haystack, $needle=null, $modifier=null) {
     return preg_match($this->pattern, $haystack);
   }
 }

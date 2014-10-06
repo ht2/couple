@@ -36,17 +36,17 @@ class MatchTest extends \PHPUnit_Framework_TestCase {
    */
   public function testPrimitive() {
     $needle = 'hello world';
-    $result = $this->couple->primitive($needle, $needle);
-    $this->assertEquals($result, true);
-    $result = $this->couple->primitive($needle, $needle . '.');
-    $this->assertEquals($result, false);
+    $result1 = $this->couple->primitive($needle, $needle);
+    $this->assertEquals($result1, true);
+    $result2 = $this->couple->primitive($needle, $needle . '.');
+    $this->assertEquals($result2, false);
   }
 
   /**
    * Tests the arr method.
    */
   public function testMatchingArr() {
-    $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
+    $result = $this->couple->arr($this->arrHaystack, $this->arrNeedle);
     $this->assertEquals($result, true);
   }
 

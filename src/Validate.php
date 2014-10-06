@@ -13,7 +13,7 @@ class Validate extends Match {
         foreach ($needle as $key => $value) {
           if (!isset($haystack[$key])) {
             throw new TypedCoupleException("`$key` is not defined", $needle, $haystack);
-          } else if (!$this->run($value, $haystack[$key])) {
+          } else if (!$this->run($haystack[$key], $value)) {
             throw new TypedCoupleException("`$key` is not valid", $value, $haystack[$key]);
           }
         }

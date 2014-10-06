@@ -36,4 +36,8 @@ class Merge extends TypedCouple {
   public function unknown($needle, $haystack) {
     return $needle;
   }
+
+  public function null($needle, $haystack) {
+    return $haystack;
+  }
 }

@@ -31,7 +31,7 @@ $haystack = [
 ];
 
 // Runs your `TypedCouple`.
-$coupleResult = $shallowMerge->run($needle, $haystack);
+$coupleResult = $shallowMerge->run($haystack, $needle);
 
 /*
 Returns `[

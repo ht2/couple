@@ -4,7 +4,7 @@ include_once(__DIR__ . '/Couple.php');
 include_once(__DIR__ . '/TypedCoupleException.php');
 
 abstract class TypedCouple extends Couple {
-  public function run($needle, $haystack, $modifier=null) {
+  public function run($haystack, $needle, $modifier=null) {
     // Calls the method associated with the type.
     switch ($this->type($needle)) {
       // Adds cases for primitive types.

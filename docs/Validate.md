@@ -25,11 +25,11 @@ $haystack = [
 ];
 
 // Runs the couple.
-$couple->run($needle, $haystack); // Returns true.
+$couple->run($haystack, $needle); // Returns true.
 
 // Changes the haystack.
 $haystack['string1'] = 'hello uk';
 
 // Runs the couple.
-$couple->run($needle, $haystack); // Throws TypedCoupleException with the message "`string1` is not valid".
+$couple->run($haystack, $needle); // Throws TypedCoupleException with the message "`string1` is not valid".
 ```

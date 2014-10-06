@@ -47,7 +47,7 @@ class MergeTest extends \PHPUnit_Framework_TestCase {
       'b' => 2,
       'c' => 2
     ];
-    $result = $this->couple->arr($needle, $haystack);
+    $result = $this->couple->arr($haystack, $needle);
     $this->assertEquals($result['a'], 1);
     $this->assertEquals($result['b'], 1);
     $this->assertEquals($result['c'], 2);
