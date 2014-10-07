@@ -52,36 +52,56 @@ class MatchTest extends \PHPUnit_Framework_TestCase {
    * Tests the arr method.
    */
   public function testNonMatchingArr0() {
-    $this->arrHaystack[0] = 'hello uk';
+    $key = 0;
+    $this->arrHaystack[$key] = 'hello uk';
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
+    $exception = $this->couple->errors[0];
+    $this->assertEquals("`$key` does not match", $exception->getMessage());
+    $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
+    $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
 
   /**
    * Tests the arr method.
    */
   public function testNonMatchingArr1() {
-    $this->arrHaystack[1] = ['hello' => 0];
+    $key = 1;
+    $this->arrHaystack[$key] = ['hello' => 0];
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
+    $exception = $this->couple->errors[0];
+    $this->assertEquals("`0` is not defined", $exception->getMessage());
+    $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
+    $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
 
   /**
    * Tests the arr method.
    */
   public function testNonMatchingArr2() {
-    $this->arrHaystack[2] = 11;
+    $key = 2;
+    $this->arrHaystack[$key] = 11;
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
+    $exception = $this->couple->errors[0];
+    $this->assertEquals("`$key` does not match", $exception->getMessage());
+    $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
+    $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
 
   /**
    * Tests the arr method.
    */
   public function testNonMatchingArr3() {
-    $this->arrHaystack[3] = 21;
+    $key = 3;
+    $this->arrHaystack[$key] = 21;
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
+    $exception = $this->couple->errors[0];
+    $this->assertEquals("`$key` does not match", $exception->getMessage());
+    $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
+    $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
 }
 
