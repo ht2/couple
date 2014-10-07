@@ -1,6 +1,4 @@
-<?php namespace couple;
-
-include_once(__DIR__ . '/Couple.php');
+<?php namespace ht2\couple;
 
 class Regexp extends Couple {
 
@@ -10,7 +8,7 @@ class Regexp extends Couple {
     $this->pattern = $pattern;
   }
 
-  public function run($haystack, $needle=null, $modifier=null) {
+  public function run($needle, $haystack, $modifier=null) {
     return preg_match($this->pattern, $haystack);
   }
 }

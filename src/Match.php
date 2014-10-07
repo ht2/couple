@@ -1,6 +1,4 @@
-<?php namespace couple;
-
-include_once(__DIR__ . '/TypedCouple.php');
+<?php namespace ht2\couple;
 
 class Match extends TypedCouple {
   public function primitive($needle, $haystack) {
@@ -10,15 +8,21 @@ class Match extends TypedCouple {
   public function arr($needle, $haystack) {
     // Matches if the type of the haystack is an array.
     if ('array' === $this->type($haystack)) {
+      $match = true;
+
       // Returns false if the values don't match.
       foreach ($needle as $key => $value) {
-        if (!isset($haystack[$key]) || !$this->run($value, $haystack[$key])) {
-          return false;
+        if (!isset($haystack[$key]) && !is_null($haystack[$key])){
+          $this->addError(new TypedCoupleException("`$key` is not defined", $needle, $haystack));
+          $match = false;
+        } else if (!$this->run($value, $haystack[$key])) {
+          $this->addError(new TypedCoupleException("`$key` does not match", $value, $haystack[$key]));
+          $match = false;
         }
       }
 
       // Returns true because all of the values must have matched.
-      return true;
+      return $match;
     }
 
     // Otherwise returns false since the values can't possibly match.

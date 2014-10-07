@@ -2,7 +2,7 @@
 
 ```php
 // Gets the class.
-$couple = new couple\Couple();
+$couple = new ht2\couple\Couple();
 
 // Creates the arguments.
 $modifier = function ($needle, $haystack) {
@@ -12,5 +12,5 @@ $needle = [];
 $haystack = [];
 
 // Runs the couple.
-$couple->run($haystack, $needle, $modifier);
+$couple->run($needle, $haystack, $modifier);
 ```

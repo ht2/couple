@@ -15,7 +15,7 @@ $haystack = [
 ];
 
 // Runs the couple.
-$couple->run($haystack, $needle);
+$couple->run($needle, $haystack);
 
 /*
 Returns `[

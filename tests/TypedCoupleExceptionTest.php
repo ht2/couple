@@ -1,7 +1,5 @@
 <?php
 
-include_once(__DIR__ . '/../src/TypedCoupleException.php');
-
 class TypedCoupleExceptionTest extends PHPUnit_Framework_TestCase {
 
   protected $exception, $needle, $haystack, $message;
@@ -14,7 +12,7 @@ class TypedCoupleExceptionTest extends PHPUnit_Framework_TestCase {
     $this->message = 'message';
     $this->needle = new stdClass();
     $this->haystack = new stdClass();
-    $this->exception = new couple\TypedCoupleException(
+    $this->exception = new ht2\couple\TypedCoupleException(
       $this->message,
       $this->needle,
       $this->haystack
@@ -29,7 +27,7 @@ class TypedCoupleExceptionTest extends PHPUnit_Framework_TestCase {
    */
   public function testMessage() {
     // Tests the result is correct.
-    $this->assertEquals($this->exception->getMessage(), $this->message);
+    $this->assertEquals($this->message, $this->exception->getMessage());
   }
 
   /**
@@ -37,7 +35,7 @@ class TypedCoupleExceptionTest extends PHPUnit_Framework_TestCase {
    */
   public function testNeedle() {
     // Tests the result is correct.
-    $this->assertEquals($this->exception->getNeedle(), $this->needle);
+    $this->assertEquals($this->needle, $this->exception->getNeedle());
   }
 
   /**
@@ -45,6 +43,6 @@ class TypedCoupleExceptionTest extends PHPUnit_Framework_TestCase {
    */
   public function testHaystack() {
     // Tests the result is correct.
-    $this->assertEquals($this->exception->getHaystack(), $this->haystack);
+    $this->assertEquals($this->haystack, $this->exception->getHaystack());
   }
 }

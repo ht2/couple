@@ -1,7 +1,5 @@
 <?php
 
-include_once(__DIR__ . '/../src/Regexp.php');
-
 class RegexpTest extends PHPUnit_Framework_TestCase {
 
   protected $couple;
@@ -13,7 +11,7 @@ class RegexpTest extends PHPUnit_Framework_TestCase {
   public function setup() {
     // Creates a needle and a haystack.
     $this->haystack = 'hello world';
-    $this->couple = new couple\Regexp('#hello world#');
+    $this->couple = new ht2\couple\Regexp('#hello world#');
 
     // Calls parent setup.
     parent::setUp();
@@ -24,9 +22,9 @@ class RegexpTest extends PHPUnit_Framework_TestCase {
    */
   public function testRun() {
     // Gets the result from couple.
-    $coupleResult = $this->couple->run($this->haystack);
+    $coupleResult = $this->couple->run($this->couple, $this->haystack);
 
     // Tests the result is correct.
-    $this->assertEquals($coupleResult, true);
+    $this->assertEquals(true, $coupleResult);
   }
 }

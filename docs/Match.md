@@ -25,5 +25,12 @@ $haystack = [
 ];
 
 // Runs the couple.
-$couple->run($haystack, $needle); // Returns true.
+$couple->run($needle, $haystack); // Returns true.
+
+// Changes the haystack.
+$haystack['string1'] = 'hello uk';
+
+// Runs the couple.
+$couple->run($needle, $haystack);  // Returns false.
+$couple->errors[0]; // Returns a TypedCoupleException with the message "`string1` does not match".
 ```
