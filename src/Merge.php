@@ -1,6 +1,4 @@
-<?php namespace couple;
-
-include_once(__DIR__ . '/TypedCouple.php');
+<?php namespace ht2\couple;
 
 class Merge extends TypedCouple {
   public function primitive($needle, $haystack) {

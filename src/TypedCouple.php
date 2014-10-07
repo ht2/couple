@@ -1,10 +1,18 @@
-<?php namespace couple;
-
-include_once(__DIR__ . '/Couple.php');
-include_once(__DIR__ . '/TypedCoupleException.php');
+<?php namespace ht2\couple;
 
 abstract class TypedCouple extends Couple {
-  public function run($haystack, $needle, $modifier=null) {
+
+  public $errors;
+
+  public function __construct() {
+    $this->errors = [];
+  }
+
+  public function addError($error) {
+    array_push($this->errors, $error);
+  }
+
+  public function run($needle, $haystack, $modifier=null) {
     // Calls the method associated with the type.
     switch ($this->type($needle)) {
       // Adds cases for primitive types.
@@ -24,9 +32,10 @@ abstract class TypedCouple extends Couple {
     }
   }
   public function type($value) {
+
     // Returns 'function' if the value is func.
     // This is needed because gettype doesn't return 'unknown type'.
-    if (is_callable($value)) {
+    if (is_callable($value) || (is_object($value) && ($value instanceof Closure))) {
       return 'function';
     }
 
@@ -60,13 +69,14 @@ abstract class TypedCouple extends Couple {
 
   abstract public function arr($needle, $haystack);
   public function obj($needle, $haystack) {
-    return $needle->run($haystack);
+    return $needle->run($needle, $haystack);
   }
   public function func($needle, $haystack) {
-    return $needle($haystack);
+    return $needle($needle, $haystack);
   }
 
   public function unknown($needle, $haystack) {
-    throw new TypedCoupleException('unknown type', $needle, $haystack);
+    $this->addError(new TypedCoupleException('unknown type', $needle, $haystack));
+    return $needle;
   }
 }

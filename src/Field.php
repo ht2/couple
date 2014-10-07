@@ -1,7 +1,4 @@
-<?php namespace couple;
-
-include_once(__DIR__ . '/Merge.php');
-include_once(__DIR__ . '/Validate.php');
+<?php namespace ht2\couple;
 
 class Field extends Couple {
 
@@ -16,9 +13,9 @@ class Field extends Couple {
     $this->validate = new Validate();
   }
 
-  public function run($haystack, $needle=null, $modifier=null) {
+  public function run($needle, $haystack, $modifier=null) {
     // Merges the `haystack` with the `def`.
-    $mergedValue = $this->merge->run($this->def, $haystack);
+    $mergedValue = $this->merge->run($haystack, $this->def);
 
     // Returns `true` if the haystack is not defined and it's optional.
     if (is_null($mergedValue)) {
@@ -29,11 +26,11 @@ class Field extends Couple {
     else if (count($this->states) > 0) {
       foreach ($this->states as $state) {
         // Merges the state with `extend`.
-        $state = $this->merge->run($this->extend, $state);
+        $state = $this->merge->run($state, $this->extend);
 
         try {
           // Validates that the `mergedValue` matches the `state`.
-          if ($this->validate->run($mergedValue, $state)) {
+          if ($this->validate->run($state, $mergedValue)) {
             return true;
           }
         } catch (TypedCoupleException $e) {
@@ -45,13 +42,13 @@ class Field extends Couple {
 
     // Tries to match the haystack with `extend` if no states are defined.
     else {
-      return $this->validate->run($mergedValue, $this->extend);
+      return $this->validate->run($this->extend, $mergedValue);
     }
   }
 
   public function setExtend($extend) {
     // Merges the previous `extend` with the new one.
-    $this->extend = $this->merge->run($this->extend, $extend);
+    $this->extend = $this->merge->run($extend, $this->extend);
     return $this;
   }
 
@@ -68,7 +65,7 @@ class Field extends Couple {
 
   public function setDefault($def) {
     // Merges the previous `def` with the new one.
-    $this->def = $this->merge->run($this->def, $def);
+    $this->def = $this->merge->run($def, $this->def);
     return $this;
   }
 }

@@ -1,7 +1,5 @@
 <?php namespace mergeTest;
 
-include_once(__DIR__ . '/../src/Merge.php');
-
 class MergeTest extends \PHPUnit_Framework_TestCase {
 
   protected $couple;
@@ -11,7 +9,7 @@ class MergeTest extends \PHPUnit_Framework_TestCase {
    */
   public function setup() {
     // Adds values needed by all tests.
-    $this->couple = new \couple\Merge();
+    $this->couple = new \ht2\couple\Merge();
 
     // Calls parent setup.
     parent::setUp();
@@ -23,7 +21,7 @@ class MergeTest extends \PHPUnit_Framework_TestCase {
   public function testPrimitive() {
     $needle = 'hello world';
     $result = $this->couple->primitive($needle, 10);
-    $this->assertEquals($result, $needle);
+    $this->assertEquals($needle, $result);
   }
 
   /**
@@ -32,7 +30,7 @@ class MergeTest extends \PHPUnit_Framework_TestCase {
   public function testArrPrimitive() {
     $needle = [];
     $result = $this->couple->arr($needle, 10);
-    $this->assertEquals($result, $needle);
+    $this->assertEquals($needle, $result);
   }
 
   /**
@@ -47,16 +45,16 @@ class MergeTest extends \PHPUnit_Framework_TestCase {
       'b' => 2,
       'c' => 2
     ];
-    $result = $this->couple->arr($haystack, $needle);
-    $this->assertEquals($result['a'], 1);
-    $this->assertEquals($result['b'], 1);
-    $this->assertEquals($result['c'], 2);
+    $result = $this->couple->arr($needle, $haystack);
+    $this->assertEquals(1, $result['a']);
+    $this->assertEquals(1, $result['b']);
+    $this->assertEquals(2, $result['c']);
   }
 }
 
 // Creates an object class for tests.
 class MyObject {
-  public function run($haystack) {
+  public function run($needle, $haystack) {
     return $haystack === 20;
   }
 }

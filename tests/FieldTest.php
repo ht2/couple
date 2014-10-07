@@ -1,7 +1,5 @@
 <?php
 
-include_once(__DIR__ . '/../src/Field.php');
-
 class FieldTest extends PHPUnit_Framework_TestCase {
 
   protected $field;
@@ -11,7 +9,7 @@ class FieldTest extends PHPUnit_Framework_TestCase {
    */
   public function setup() {
     // Adds values needed by all tests.
-    $this->field = new couple\Field();
+    $this->field = new ht2\couple\Field();
 
     // Calls parent setup.
     parent::setUp();
@@ -22,15 +20,15 @@ class FieldTest extends PHPUnit_Framework_TestCase {
    */
   public function testOptional() {
     // Tests default behaviour.
-    $this->assertEquals($this->field->run(null), false);
+    $this->assertEquals(false, $this->field->run($this->field, null));
 
     // Tests optional behaviour.
     $this->field->setOptional(true);
-    $this->assertEquals(true, $this->field->run(null));
+    $this->assertEquals(true, $this->field->run($this->field, null));
 
     // Tests required behaviour.
     $this->field->setOptional(false);
-    $this->assertEquals($this->field->run(null), false);
+    $this->assertEquals(false, $this->field->run($this->field, null));
   }
 
   /**
@@ -40,11 +38,11 @@ class FieldTest extends PHPUnit_Framework_TestCase {
     $this->field->addStates([0, 1]);
 
     // Tests correct states.
-    $this->assertEquals($this->field->run(0), true);
-    $this->assertEquals($this->field->run(1), true);
+    $this->assertEquals(true, $this->field->run($this->field, 0));
+    $this->assertEquals(true, $this->field->run($this->field, 1));
 
     // Tests incorrect state(s).
-    $this->assertEquals($this->field->run(null), false);
+    $this->assertEquals(false, $this->field->run($this->field, null));
   }
 
   /**
@@ -58,10 +56,10 @@ class FieldTest extends PHPUnit_Framework_TestCase {
     $this->field->setExtend($data);
 
     // Tests correct states.
-    $this->assertEquals($this->field->run($data), true);
+    $this->assertEquals(true, $this->field->run($this->field, $data));
 
     // Tests incorrect state(s).
-    $this->assertEquals($this->field->run(null), false);
+    $this->assertEquals(false, $this->field->run($this->field, null));
   }
 
   /**
@@ -70,7 +68,7 @@ class FieldTest extends PHPUnit_Framework_TestCase {
   public function testDefault() {
     $data = 0;
     $this->field->setDefault($data)->setExtend($data);
-    $this->assertEquals($this->field->run(null), true);
+    $this->assertEquals(true, $this->field->run($this->field, null));
   }
 
 }

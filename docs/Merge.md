@@ -2,7 +2,7 @@
 
 ```php
 // Gets the class.
-$couple = new couple\Merge();
+$couple = new ht2\couple\Merge();
 
 // Creates the arguments.
 $needle = [
@@ -15,7 +15,7 @@ $haystack = [
 ];
 
 // Runs the couple.
-$couple->run($haystack, $needle);
+$couple->run($needle, $haystack);
 
 /*
 Returns `[

@@ -3,7 +3,7 @@ Unfortunately this wrapper is needed for any regular expressions (it uses preg_m
 
 ```php
 // Gets the class.
-$couple = new couple\Match();
+$couple = new ht2\couple\Match();
 
 // Creates the arguments.
 $needle = [
@@ -14,5 +14,5 @@ $haystack = [
 ];
 
 // Runs the couple.
-$couple->run($haystack, $needle); // Returns true.
+$couple->run($needle, $haystack); // Returns true.
 ```

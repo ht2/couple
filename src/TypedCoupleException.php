@@ -1,4 +1,4 @@
-<?php namespace couple;
+<?php namespace ht2\couple;
 
 class TypedCoupleException extends \Exception {
   protected $needle;
