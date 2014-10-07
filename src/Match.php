@@ -12,7 +12,7 @@ class Match extends TypedCouple {
 
       // Returns false if the values don't match.
       foreach ($needle as $key => $value) {
-        if (!isset($haystack[$key]) && !is_null($haystack[$key])){
+        if (!array_key_exists($key, $haystack)){
           $this->addError(new TypedCoupleException("`$key` is not defined", $needle, $haystack));
           $match = false;
         } else if (!$this->run($value, $haystack[$key])) {
