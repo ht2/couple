@@ -8,7 +8,7 @@ $needle = 'bar';
 $haystack = 'baz';
 
 // Gets the class.
-$exception = new couple\TypedCoupleException($message, $needle, $haystack);
+$exception = new ht2\couple\TypedCoupleException($message, $needle, $haystack);
 
 // Demonstrates use of methods.
 $exception->getMessage(); // Returns $message.

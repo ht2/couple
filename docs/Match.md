@@ -2,7 +2,7 @@
 
 ```php
 // Gets the class.
-$couple = new couple\Match();
+$couple = new ht2\couple\Match();
 
 // Creates the arguments.
 $needle = [

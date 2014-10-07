@@ -3,7 +3,7 @@ Field provides some utility functions for validation allowing for defaults, opti
 
 ```php
 // Gets the classes.
-$couple = new couple\Validate();
+$couple = new ht2\couple\Validate();
 
 // Creates the arguments.
 $string1 = (new couple\Field())
