@@ -138,15 +138,12 @@ class TypedCoupleTest extends \PHPUnit_Framework_TestCase {
    */
   public function testUnknown() {
     $needle = 10;
-    try {
-      $result = $this->couple->unknown($needle, $this->haystack);
-    } catch (\couple\TypedCoupleException $e) {
-      $this->assertEquals('unknown type', $e->getMessage());
-      $this->assertEquals($needle, $e->getNeedle());
-      $this->assertEquals($this->haystack, $e->getHaystack());
-    } catch (\Exception $e) {
-      $this->assertEquals(true, false);
-    }
+    $result = $this->couple->unknown($needle, $this->haystack);
+    $this->assertEquals(1, count($this->couple->errors));
+    $exception = $this->couple->errors[0];
+    $this->assertEquals('unknown type', $exception->getMessage());
+    $this->assertEquals($needle, $exception->getNeedle());
+    $this->assertEquals($this->haystack, $exception->getHaystack());
   }
 }
 
