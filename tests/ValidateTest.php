@@ -57,7 +57,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase {
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
     $exception = $this->couple->errors[0];
-    $this->assertEquals("`$key` is not valid", $exception->getMessage());
+    $this->assertEquals("`$key` does not match", $exception->getMessage());
     $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
     $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
@@ -85,7 +85,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase {
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
     $exception = $this->couple->errors[0];
-    $this->assertEquals("`$key` is not valid", $exception->getMessage());
+    $this->assertEquals("`$key` does not match", $exception->getMessage());
     $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
     $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
@@ -99,7 +99,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase {
     $result = $this->couple->arr($this->arrNeedle, $this->arrHaystack);
     $this->assertEquals(false, $result);
     $exception = $this->couple->errors[0];
-    $this->assertEquals("`$key` is not valid", $exception->getMessage());
+    $this->assertEquals("`$key` does not match", $exception->getMessage());
     $this->assertEquals($this->arrNeedle[$key], $exception->getNeedle());
     $this->assertEquals($this->arrHaystack[$key], $exception->getHaystack());
   }
